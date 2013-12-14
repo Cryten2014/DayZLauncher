@@ -25,7 +25,7 @@ namespace DayZ_Epoch_Updater
         public static extern bool ReleaseCapture();
 
         const int WM_NCLBUTTONDOWN = 0xA1;
-        const int HT_CAPTION = 0x2;  //this indicates that the action takes place on the title bar
+        const int HT_CAPTION = 0x2;
 
         private void move_window(object sender, MouseEventArgs e)
         {
@@ -237,7 +237,6 @@ namespace DayZ_Epoch_Updater
 
             try
             {
-                // true is the default, but it is important not to set it to false
                 myProcess.StartInfo.UseShellExecute = true;
                 myProcess.StartInfo.FileName = "http://dayzepoch.com";
                 myProcess.Start();
@@ -254,7 +253,6 @@ namespace DayZ_Epoch_Updater
 
             try
             {
-                // true is the default, but it is important not to set it to false
                 donate.StartInfo.UseShellExecute = true;
                 donate.StartInfo.FileName = "https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=MLTEDU37NJ9ZY";
                 donate.Start();
@@ -698,11 +696,11 @@ namespace DayZ_Epoch_Updater
             WshShell shell = new WshShell();
             IWshShortcut shortcut = (IWshShortcut)shell.CreateShortcut(shortcutLocation);
 
-            shortcut.Description = "DayZ Epoch Launcher";   // The description of the shortcut
-            //shortcut.IconLocation = @"c:\myicon.ico";           // The icon of the shortcut
-            shortcut.TargetPath = targetFileLocation;                 // The path of the file that will launch when the shortcut is run
+            shortcut.Description = "DayZ Epoch Launcher";  
+            //shortcut.IconLocation = @"c:\myicon.ico";           
+            shortcut.TargetPath = targetFileLocation;
             shortcut.WorkingDirectory = thisPath;
-            shortcut.Save();                                    // Save the shortcut
+            shortcut.Save();                                 
         }
         private void desktopShortcutToolStripMenuItem_Click(object sender, EventArgs e)
         {
